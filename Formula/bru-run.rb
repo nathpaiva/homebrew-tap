@@ -9,12 +9,14 @@ class BruRun < Formula
   depends_on "jq"
 
   def install
-    libexec.install "lib"
-    libexec.install "bin/bru-run"
+    # bin/bru-run resolves its own symlink chain, then loads lib/ as a
+    # sibling of its own bin/ dir, so the bin/ + lib/ pair has to stay
+    # together.
+    libexec.install "bin", "lib"
     # Pin the shebang to Homebrew's bash so macOS system bash 3.2 is never
     # hit: bru-run needs 4.0+ and fails fast otherwise.
-    inreplace libexec/"bru-run", %r{^#!/usr/bin/env bash$}, "#!#{formula_opt_bin("bash")}/bash"
-    bin.install_symlink libexec/"bru-run"
+    inreplace libexec/"bin/bru-run", %r{^#!/usr/bin/env bash$}, "#!#{formula_opt_bin("bash")}/bash"
+    bin.install_symlink libexec/"bin/bru-run"
   end
 
   def caveats
