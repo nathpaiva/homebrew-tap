@@ -1,10 +1,9 @@
 class Readtome < Formula
   desc "Read a markdown file out loud with the macOS say command"
   homepage "https://github.com/nathpaiva/readtome"
-  url "https://github.com/nathpaiva/readtome/archive/refs/tags/v1.2.0.tar.gz"
-  sha256 "f3d1c886fb01b775e11c6d80fbdb11728becbbd6fed177281021847db3619101"
+  url "https://github.com/nathpaiva/readtome/archive/refs/tags/v1.3.0.tar.gz"
+  sha256 "9995494b67804c14d4fe88452fc561e0d14e8a9d9fb280209411899a778ab6e3"
   license "MIT"
-  revision 1
 
   # `say` ships with macOS and exists nowhere else.
   depends_on :macos
