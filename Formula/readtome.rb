@@ -4,10 +4,11 @@ class Readtome < Formula
   url "https://github.com/nathpaiva/readtome/archive/refs/tags/v1.2.0.tar.gz"
   sha256 "f3d1c886fb01b775e11c6d80fbdb11728becbbd6fed177281021847db3619101"
   license "MIT"
+  revision 1
 
   # `say` ships with macOS and exists nowhere else.
   depends_on :macos
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   def install
     # cli.py puts its own folder on sys.path and imports its four siblings,
@@ -16,7 +17,7 @@ class Readtome < Formula
     # Pin the shebang to Homebrew's python, so the tool never depends on
     # whichever python3 happens to come first on the PATH.
     inreplace libexec/"cli.py", %r{^#!/usr/bin/env python3$},
-              "#!#{formula_opt_bin("python@3.13")}/python3.13"
+              "#!#{formula_opt_bin("python@3.14")}/python3.14"
     bin.install_symlink libexec/"cli.py" => "readtome"
   end
 
