@@ -16,7 +16,7 @@ class Readtome < Formula
     # Pin the shebang to Homebrew's python, so the tool never depends on
     # whichever python3 happens to come first on the PATH.
     inreplace libexec/"cli.py", %r{^#!/usr/bin/env python3$},
-              "#!#{Formula["python@3.13"].opt_bin}/python3.13"
+              "#!#{formula_opt_bin("python@3.13")}/python3.13"
     bin.install_symlink libexec/"cli.py" => "readtome"
   end
 
