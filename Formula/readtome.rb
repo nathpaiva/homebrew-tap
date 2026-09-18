@@ -22,6 +22,11 @@ class Readtome < Formula
 
   def caveats
     <<~EOS
+      English reads with Samantha. The enhanced Samantha sounds much less
+      robotic and is a free download, in System Settings > Accessibility >
+      Spoken Content > System Speech Voice > Manage Voices. readtome picks
+      it up on its own once it is there, with nothing to configure.
+
       To pick a project by name with -p, say where your repos live:
         export READTOME_ROOTS="$HOME/code:$HOME/work"
 
